@@ -1,5 +1,17 @@
 
 services:
+
+  app:
+    image: petclinic:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - "./conf.d:/etc/mysql/conf.d:ro"
+    networks:
+      - petclinic
+    environment:
+      - MYSQL_URL=jdbc:mysql://mysqlpetclinic/petclinic
+
   mysql:
     image: mysql:5.7
     ports:
@@ -12,4 +24,10 @@ services:
       - MYSQL_DATABASE=petclinic
     volumes:
       - "./conf.d:/etc/mysql/conf.d:ro"
+    networks:
+      petclinic:
+        aliases:
+          - mysqlpetclinic
   
+networks:
+  petclinic:
