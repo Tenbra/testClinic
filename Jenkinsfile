@@ -17,7 +17,7 @@ pipeline {
             steps {
                 echo 'Build docker image...'
                 sh 'docker --version'
-                sh 'docker-compose build'
+                sh 'docker build -t petclinic ./'
             }
         }
     }
