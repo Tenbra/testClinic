@@ -12,6 +12,8 @@ services:
       - petclinic
     environment:
       - MYSQL_URL=jdbc:mysql://mysqlpetclinic:3306/petclinic
+    volumes:
+      - "/app/data:appdata"
 
   mysql:
     image: mysql:5.7
