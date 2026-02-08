@@ -16,7 +16,7 @@ pipeline {
         stage('Build Docker image') {
             steps {
                 echo 'Build docker image...'
-                sh 'docker build -t petclinic .'
+                sh 'docker build -t petclinic ./'
             }
         }
     }
